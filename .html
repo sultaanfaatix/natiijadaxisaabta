@@ -1,0 +1,2131 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Natiijada Imtixaanka Xisaabta - TIS</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Library for Confetti Animation -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <style>
+    :root {
+      --primary-blue: #002060;
+      --secondary-blue: #007bff;
+      --accent-gold: #FFD700;
+      --light-gray: #f5f7fa;
+      --dark-gray: #333;
+      --success-green: #28a745;
+      --warning-orange: #fd7e14;
+      --danger-red: #dc3545;
+      --admin-purple: #6f42c1;
+      --admin-teal: #20c997;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Times New Roman', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+      background-color: var(--light-gray);
+      margin: 0;
+      padding: 20px;
+      color: var(--dark-gray);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    /* ========== WELCOME HEADER ========== */
+    .welcome-header {
+      background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+      color: white;
+      padding: 50px 30px;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      border-radius: 0 0 2rem 2rem;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      animation: curtain-slide 1s ease-out forwards;
+      letter-spacing: 3px;
+      margin-bottom: 30px;
+    }
+    
+    .welcome-subtitle {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #eef7ff;
+      margin-top: 15px;
+      opacity: 0.9;
+    }
+    
+    @keyframes curtain-slide {
+      0% {
+        transform: translateY(-120%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    
+    .welcome-header::after {
+      content: '';
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 5px;
+      border-radius: 10px;
+      background: var(--accent-gold);
+      box-shadow: 0 0 20px var(--accent-gold);
+    }
+    
+    .container {
+      max-width: 100%;
+      width: 100%;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      border-top: 5px solid var(--primary-blue);
+    }
+    
+    /* Modern Header Section */
+    .header-section {
+      text-align: center;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .header-section::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 10%;
+      width: 80%;
+      height: 2px;
+      background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue), var(--primary-blue));
+      border-radius: 2px;
+    }
+    
+    .school-logo {
+      height: 300px;
+      margin-bottom: 10px;
+    }
+    
+    .school-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin: 5px 0;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    
+    .exam-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--secondary-blue);
+      margin: 5px 0;
+      background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .academic-year {
+      font-size: 14px;
+      color: #666;
+      font-weight: 500;
+      margin: 5px 0 10px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .academic-year::before,
+    .academic-year::after {
+      content: "✦"; 
+      color: var(--accent-gold);
+      margin: 0 5px;
+      font-size: 12px;
+    }
+    
+    /* ========== PROFESSIONAL ADMIN SECTION ========== */
+    .admin-section {
+      background: linear-gradient(135deg, var(--admin-purple), #8b5cf6);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(111, 66, 193, 0.3);
+      margin: 25px 0;
+      border: 2px solid rgba(255,255,255,0.1);
+      max-width: 100%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .admin-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: pulse 4s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    .admin-toggle {
+      background: rgba(255,255,255,0.15);
+      color: white;
+      border: 2px solid rgba(255,255,255,0.3);
+      padding: 12px 24px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 0 auto;
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .admin-toggle:hover {
+      background: rgba(255,255,255,0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .admin-login-form {
+      display: none;
+      margin-top: 20px;
+      text-align: left;
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .admin-login-form.show {
+      display: block;
+      animation: fadeIn 0.5s ease-out;
+    }
+    
+    .admin-input-group {
+      margin-bottom: 15px;
+    }
+    
+    .admin-label {
+      display: block;
+      color: white;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    
+    .admin-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.9);
+      font-size: 14px;
+      transition: all 0.3s;
+      color: #333;
+    }
+    
+    .admin-input:focus {
+      outline: none;
+      border-color: white;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
+    }
+    
+    .admin-submit-btn {
+      width: 100%;
+      background: white;
+      color: var(--admin-purple);
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .admin-submit-btn:hover {
+      background: #f8f9fa;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    /* Professional Admin Panel */
+    .admin-panel {
+      display: none;
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      margin: 25px 0;
+      border: 2px solid var(--admin-teal);
+      box-shadow: 0 10px 30px rgba(32, 201, 151, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .admin-panel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(to right, var(--admin-purple), var(--admin-teal));
+    }
+    
+    .admin-panel.show {
+      display: block;
+      animation: slideDown 0.5s ease-out;
+    }
+    
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .admin-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #e9ecef;
+    }
+    
+    .admin-panel-title {
+      font-size: 24px;
+      color: var(--admin-purple);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .admin-logout-btn {
+      background: var(--danger-red);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .admin-logout-btn:hover {
+      background: #c82333;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+    }
+    
+    .admin-controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+    
+    .admin-btn {
+      background: linear-gradient(135deg, var(--admin-purple), var(--secondary-blue));
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(111, 66, 193, 0.3);
+    }
+    
+    .admin-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(111, 66, 193, 0.4);
+    }
+    
+    .admin-btn:active {
+      transform: translateY(-1px);
+    }
+    
+    .admin-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+    
+    .stat-card {
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s;
+      border-left: 4px solid var(--admin-teal);
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    
+    .stat-icon {
+      font-size: 24px;
+      color: var(--admin-purple);
+      margin-bottom: 10px;
+    }
+    
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--admin-purple);
+      margin: 5px 0;
+    }
+    
+    .stat-label {
+      font-size: 12px;
+      color: #666;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .admin-data-section {
+      margin-top: 25px;
+    }
+    
+    .data-section-title {
+      font-size: 20px;
+      color: var(--admin-purple);
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e9ecef;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .students-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .students-table th {
+      background: linear-gradient(135deg, var(--admin-purple), var(--secondary-blue));
+      color: white;
+      padding: 12px 15px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    
+    .students-table td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #e9ecef;
+      font-size: 14px;
+    }
+    
+    .students-table tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+    
+    .students-table tr:hover {
+      background-color: #e3f2fd;
+    }
+    
+    .status-badge {
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    
+    .status-passed {
+      background: #d4edda;
+      color: #155724;
+    }
+    
+    .status-failed {
+      background: #f8d7da;
+      color: #721c24;
+    }
+    
+    /* Registration Input Section */
+    .registration-section {
+      background: lightblue;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      margin: 15px 0;
+      border: 2px solid rgba(0,0,0,0.05);
+      max-width: 100%;
+    }
+    
+    .input-title {
+      display: block;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--primary-blue);
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    .input-field {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 16px;
+      border: 2px solid #e0e6ed;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      background-color: #f8fafc;
+    }
+    
+    .input-field:focus {
+      border-color: var(--secondary-blue);
+      box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+      outline: none;
+      background-color: white;
+    }
+    
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: all 0.3s;
+      box-shadow: 0 3px 8px rgba(0,32,96,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 12px rgba(0,32,96,0.3);
+    }
+    
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Student Info Section */
+    .student-info-container {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+      border: 1px solid #e0e6ed;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+    
+    .student-info-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--primary-blue), var(--secondary-blue));
+    }
+    
+    .student-info-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .student-info-title {
+      font-size: 18px;
+      color: var(--primary-blue);
+      font-weight: 800;
+      position: relative;
+      padding-left: 10px;
+    }
+    
+    .student-info-title::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 10px;
+      width: 40px;
+      height: 2px;
+      background: var(--secondary-blue);
+    }
+    
+    .student-info-badge {
+      background: var(--secondary-blue);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 15px;
+      font-size: 12px;
+      font-weight: 400;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .student-info-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .info-row {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr;
+    }
+    
+    .info-item {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      background: rgba(240, 245, 250, 0.5);
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: all 0.3s;
+      border-left: 3px solid var(--secondary-blue);
+    }
+    
+    .info-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      background: white;
+    }
+    
+    .info-icon {
+      width: 35px;
+      height: 35px;
+      background: var(--secondary-blue);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      flex-shrink: 0;
+      font-size: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .info-label {
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 2px;
+      font-size: 13px;
+    }
+    
+    .info-value {
+      font-size: 14px;
+      color: var(--primary-blue);
+      font-weight: 700;
+    }
+    
+    /* Results Table */
+    .results-container {
+      margin-top: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .results-header {
+      background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .results-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+    }
+    
+    .results-badge {
+      background: rgba(255,255,255,0.2);
+      padding: 4px 10px;
+      border-radius: 15px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    .results-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 15px;
+    }
+    
+    .results-table thead th {
+      background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+      color: white;
+      padding: 12px 15px;
+      text-align: center;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+    }
+    
+    .results-table tbody td {
+      padding: 10px 15px;
+      border-bottom: 1px solid #e0e6ed;
+      text-align: center;
+    }
+    
+    .results-table tbody tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+    
+    .results-table tbody tr:hover {
+      background-color: #f1f7fe;
+    }
+    
+    .subject-name {
+      font-weight: 600;
+      color: var(--primary-blue);
+      text-align: left;
+    }
+    
+    .grade-cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .grade-value {
+      font-weight: 600;
+      margin-right: 8px;
+      min-width: 25px;
+    }
+    
+    .grade-progress {
+      flex-grow: 1;
+      height: 6px;
+      background: #e0e6ed;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    
+    .grade-progress-bar {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.5s ease;
+    }
+    
+    /* Progress bar for 9 points will be 100% width and green */
+    .grade-progress-bar.excellent {
+      background-color: #00c853;
+      width: 100% !important; /* Force 100% width for excellent scores */
+    }
+    
+    .performance-indicator {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+    
+    /* Performance Colors */
+    .excellent { background-color: #00c853; }
+    .good { background-color: #64dd17; }
+    .average { background-color: #ffab00; }
+    .poor { background-color: #ff6d00; }
+    .fail { background-color: #dd2c00; }
+    
+    /* Summary Cards */
+    .summary-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      margin: 20px 0;
+    }
+    
+    .summary-card {
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border-top: 3px solid;
+    }
+    
+    .summary-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .total-card {
+      background: linear-gradient(135deg, #f0f7ff, #e3f2fd);
+      border-top-color: var(--primary-blue);
+    }
+    
+    .average-card {
+      background: linear-gradient(135deg, #f0fff4, #e8f5e9);
+      border-top-color: var(--success-green);
+    }
+    
+    .status-card {
+      background: linear-gradient(135deg, #fff5f5, #ffebee);
+      border-top-color: var(--danger-red);
+    }
+    
+    .success-status {
+      background: linear-gradient(135deg, #f0fff4, #e8f5e9) !important;
+      border-top-color: var(--success-green) !important;
+    }
+    
+    .summary-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #555;
+    }
+    
+    .summary-value {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 10px 0;
+      color: var(--primary-blue);
+    }
+    
+    .success-status .summary-value {
+      color: var(--success-green);
+    }
+    
+    .summary-desc {
+      font-size: 13px;
+      color: #666;
+    }
+    
+    /* Final Comment */
+    .final-comment {
+      background: #fffcf0;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+      border-left: 3px solid var(--accent-gold);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+    
+    .comment-header {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary-blue);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .comment-header::before {
+      content: "💡";
+      margin-right: 10px;
+      font-size: 20px;
+      color: var(--accent-gold);
+    }
+    
+    .comment-content {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #444;
+    }
+    
+    /* Print Button */
+    .print-button {
+      margin-top: 20px;
+      background: linear-gradient(135deg, var(--success-green), #5cb85c);
+      color: white;
+      padding: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 3px 8px rgba(40,167,69,0.3);
+    }
+    
+    .print-button:hover {
+      background: linear-gradient(135deg, #218838, var(--success-green));
+      transform: translateY(-2px);
+      box-shadow: 0 5px 12px rgba(40,167,69,0.4);
+    }
+    
+    .print-button:active {
+      transform: translateY(0);
+    }
+    
+    /* Grading Scale */
+    .grading-scale-compact {
+      margin-top: 20px;
+      background: white;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      border-left: 3px solid #6c757d;
+    }
+    
+    .grading-scale-compact h4 {
+      color: #002060;
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .grade-scale-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .grade-scale-row {
+      display: flex;
+      gap: 8px;
+      justify-content: space-between;
+    }
+    
+    .grade-box {
+      flex: 1;
+      min-width: 0;
+      border-radius: 5px;
+      padding: 8px 4px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      transition: all 0.2s ease;
+    }
+    
+    .grade-box:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+    
+    .grade-letter {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 2px;
+      color: white;
+    }
+    
+    .grade-range {
+      font-size: 11px;
+      font-weight: 700;
+      color: #000;
+    }
+    
+    /* Softer grade colors */
+    .grade-a-plus { background: #4CAF50; }
+    .grade-a { background: #66BB6A; }
+    .grade-a-minus { background: #81C784; }
+    .grade-b-plus { background: #5C9EFF; }
+    .grade-b { background: #4285F4; }
+    .grade-b-minus { background: #7BAAF7; }
+    .grade-c-plus { background: #FFB74D; }
+    .grade-c { background: #FFA726; color: #333; }
+    .grade-c-minus { background: #FF8A65; }
+    .grade-d { background: #FF7043; }
+    .grade-e { background: #FF5722; }
+    .grade-f { background: #78909C; }
+    .empty { visibility: hidden; }
+    
+    /* Signature */
+    .signature {
+      margin-top: 25px;
+      padding: 15px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      border-left: 3px solid var(--secondary-blue);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+    
+    .signature p {
+      margin: 6px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .signature strong {
+      color: var(--primary-blue);
+    }
+    
+    .signature a {
+      color: var(--secondary-blue);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .signature a:hover {
+      color: var(--primary-blue);
+      text-decoration: underline;
+    }
+    
+    /* Footer */
+    .footer {
+      margin-top: 25px;
+      text-align: center;
+      font-size: 0.85em;
+      color: #666;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+    }
+    
+    .footer a {
+      color: var(--secondary-blue);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .footer a:hover {
+      color: var(--primary-blue);
+      text-decoration: underline;
+    }
+    
+    /* Responsive Design */
+    @media (min-width: 768px) {
+      .container {
+        max-width: 750px;
+        padding: 30px;
+      }
+      
+      .school-name {
+        font-size: 28px;
+      }
+      
+      .exam-title {
+        font-size: 22px;
+      }
+      
+      .info-row {
+        grid-template-columns: 1.2fr 1.8fr 1.5fr;
+      }
+      
+      .summary-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .admin-controls {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .welcome-header {
+        padding: 30px 20px;
+        font-size: 1.5rem;
+      }
+      
+      .welcome-subtitle {
+        font-size: 1rem;
+      }
+      
+      .admin-panel-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+      
+      .results-table thead {
+        display: none;
+      }
+      
+      .results-table tr {
+        display: block;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #e0e6ed;
+      }
+      
+      .results-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 12px;
+        text-align: right;
+      }
+      
+      .results-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--primary-blue);
+        margin-right: auto;
+        padding-right: 15px;
+      }
+      
+      .results-table .subject-name {
+        text-align: right;
+      }
+      
+      .grade-scale-row {
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      
+      .grade-box {
+        min-width: calc(33% - 6px);
+        padding: 6px 3px;
+      }
+      
+      .grade-letter {
+        font-size: 14px;
+      }
+      
+      .grade-range {
+        font-size: 10px;
+      }
+      
+      .empty {
+        display: none;
+      }
+      
+      .students-table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 15px;
+      }
+      
+      .grade-box {
+        min-width: calc(50% - 6px);
+      }
+      
+      .admin-controls {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .fade-in {
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    /* --- STYLES FOR WINNER/LOSER ANIMATION --- */
+    #winner-animation, #loser-animation {
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: green;
+        flex-direction: column;
+        backdrop-filter: blur(5px);
+    }
+
+    .animation-content {
+        animation: zoomIn 0.5s ease-in-out;
+    }
+
+    .animation-content h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        margin-bottom: 1rem;
+    }
+
+    .animation-content p {
+        font-size: 1.2rem;
+    }
+    
+    .trophy {
+        font-size: 6rem;
+        animation: bounce 0.5s infinite;
+    }
+
+    .fail-icon {
+        font-size: 6rem;
+    }
+
+    @keyframes zoomIn {
+        from { transform: scale(0.5); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-20px);
+        }
+        60% {
+            transform: translateY(-10px);
+        }
+    }
+    /* --- END OF ANIMATION STYLES --- */
+  </style>
+</head>
+<body>
+  <!-- Welcome Header -->
+  <header class="welcome-header">
+    KUSOO DHAWOOW MAREEGTAN
+    <div class="welcome-subtitle">Welcome to the Tayseer International Schools (TIS) Exam Results Portal.</div>
+  </header>
+
+  <div class="container">
+    <!-- Modern Header Section -->
+    <div class="header-section">
+      <img src="https://i.ibb.co/kVB6RMv2/New-logo-7aad-Taysiir-Schools.jpg" alt="Al-Hadaad-Logo" alt="Al-Hadad School Logo" class="school-logo">
+      <h1 class="school-name">DUGSIYADA CAALAMIGA AH EE TAYSIIR (TIS)</h1>
+      <h2 class="exam-title">NATIIJADA IMTIXAANKA BILEEDKA LABAAD EE MAADADA XISAABTA</h2>
+      <div class="academic-year">SANAD DUGSIYEEDKA 2024-2025</div>
+    </div>
+    
+    <!-- Professional Admin Section -->
+    <div class="admin-section">
+      <button class="admin-toggle" onclick="toggleAdminLogin()">
+        <i class="fas fa-lock"></i> Admin Login
+      </button>
+      
+      <div class="admin-login-form" id="adminLoginForm">
+        <div class="admin-input-group">
+          <label class="admin-label">Username:</label>
+          <input type="text" class="admin-input" id="adminUsername" placeholder="Enter admin username">
+        </div>
+        <div class="admin-input-group">
+          <label class="admin-label">Password:</label>
+          <input type="password" class="admin-input" id="adminPassword" placeholder="Enter admin password">
+        </div>
+        <button class="admin-submit-btn" onclick="adminLogin()">
+          <i class="fas fa-sign-in-alt"></i> Login to Admin Panel
+        </button>
+      </div>
+    </div>
+    
+    <!-- Professional Admin Panel -->
+    <div class="admin-panel" id="adminPanel">
+      <div class="admin-panel-header">
+        <h3 class="admin-panel-title">
+          <i class="fas fa-cogs"></i> Admin Dashboard
+        </h3>
+        <button class="admin-logout-btn" onclick="adminLogout()">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+      </div>
+      
+      <div class="admin-controls">
+        <button class="admin-btn" onclick="manageStudents()">
+          <i class="fas fa-users"></i> Manage Students
+        </button>
+        <button class="admin-btn" onclick="addResults()">
+          <i class="fas fa-plus-circle"></i> Add Results
+        </button>
+        <button class="admin-btn" onclick="generateReports()">
+          <i class="fas fa-chart-bar"></i> Generate Reports
+        </button>
+        <button class="admin-btn" onclick="systemSettings()">
+          <i class="fas fa-cog"></i> System Settings
+        </button>
+      </div>
+      
+      <div class="admin-stats">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-user-graduate"></i></div>
+          <div class="stat-value" id="totalStudents">0</div>
+          <div class="stat-label">Total Students</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+          <div class="stat-value" id="passedStudents">0</div>
+          <div class="stat-label">Passed Students</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+          <div class="stat-value" id="averageScore">0.0</div>
+          <div class="stat-label">Average Score</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-percentage"></i></div>
+          <div class="stat-value" id="passRate">0%</div>
+          <div class="stat-label">Pass Rate</div>
+        </div>
+      </div>
+      
+      <div class="admin-data-section">
+        <h4 class="data-section-title">
+          <i class="fas fa-table"></i> Students Data
+        </h4>
+        <div style="overflow-x: auto;">
+          <table class="students-table">
+            <thead>
+              <tr>
+                <th>Reg No</th>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Average Score</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="studentsTableBody">
+              <!-- Students data will be populated here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Registration Input Section -->
+    <div class="registration-section">
+      <label for="regInput" class="input-title">
+        <i class="fas fa-id-card"></i> Tira-taxaneha Ardeyga
+      </label>
+      <input 
+        type="text" 
+        id="regInput" 
+        class="input-field" 
+        placeholder="geli lambarkaaga tira-taxanaha (tusaale: 001)"
+        aria-label="Geli lambarkaaga tira-taxanaha"
+        pattern="[0-9]*" 
+        inputmode="numeric"
+      >
+      <button class="submit-btn" onclick="showResult()">
+        <i class="fas fa-search"></i> U Gudub Aragtida Natiijadaada
+      </button>
+    </div>
+
+    <div id="result" class="fade-in"></div>
+
+    <button class="print-button" onclick="window.print()" style="display:none;" id="printBtn">
+      <i class="fas fa-download"></i> Ladag Natiijada ama Daabac
+    </button>
+    
+    <!-- Grading Scale Section - Compact Design -->
+    <div class="grading-scale-compact">
+      <h4><i class="fas fa-graduation-cap"></i> Miisaanka Xuruuf-Darajeedka (Letter Grade Scale)</h4>
+      
+      <div class="grade-scale-container">
+        <!-- First Row of Grades -->
+        <div class="grade-scale-row">
+          <div class="grade-box grade-a-plus">
+            <div class="grade-letter">A+</div>
+            <div class="grade-range"><strong>9.00</strong></div>
+          </div>
+          <div class="grade-box grade-a">
+            <div class="grade-letter">A</div>
+            <div class="grade-range"><strong>8.9</strong></div>
+          </div>
+          <div class="grade-box grade-a-minus">
+            <div class="grade-letter">A-</div>
+            <div class="grade-range"><strong>8.5-8.9</strong></div>
+          </div>
+          <div class="grade-box grade-b-plus">
+            <div class="grade-letter">B+</div>
+            <div class="grade-range"><strong>8.0-8.4</strong></div>
+          </div>
+          <div class="grade-box grade-b">
+            <div class="grade-letter">B</div>
+            <div class="grade-range"><strong>7.5-7.9</strong></div>
+          </div>
+          <div class="grade-box grade-b-minus">
+            <div class="grade-letter">B-</div>
+            <div class="grade-range"><strong>7.0-7.4</strong></div>
+          </div>
+          <div class="grade-box grade-c-plus">
+            <div class="grade-letter">C+</div>
+            <div class="grade-range"><strong>6.5-6.9</strong></div>
+          </div>
+        </div>
+        
+        <!-- Second Row of Grades -->
+        <div class="grade-scale-row">
+          <div class="grade-box grade-c">
+            <div class="grade-letter">C</div>
+            <div class="grade-range"><strong>6.0-6.4</strong></div>
+          </div>
+          <div class="grade-box grade-c-minus">
+            <div class="grade-letter">C-</div>
+            <div class="grade-range"><strong>5.0-5.9</strong></div>
+          </div>
+          <div class="grade-box grade-d">
+            <div class="grade-letter">D</div>
+            <div class="grade-range"><strong>4.0-4.9</strong></div>
+          </div>
+          <div class="grade-box grade-e">
+            <div class="grade-letter">E</div>
+            <div class="grade-range"><strong>2.0-3.9</strong></div>
+          </div>
+          <div class="grade-box grade-f">
+            <div class="grade-letter">F</div>
+            <div class="grade-range"><strong>0-1.9</strong></div>
+          </div>
+          <div class="grade-box empty"></div>
+          <div class="grade-box empty"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="signature">
+      <p><strong><i class="fas fa-user"></i> SULTAAN</strong></p>
+      <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/252684613207">Sultaan</a></p>
+      <p><i class="fas fa-envelope"></i> Email: <a href="mailto:sultaanfaatix@gmail.com">sultaanfaatix@gmail.com</a></p>
+      <p><i class="fab fa-facebook"></i> Facebook: <a href="https://www.facebook.com/Taysiir.Schools">TIS</a></p>
+      <p><i class="fas fa-location-dot"></i> Hodan, KPP</p>
+    </div>
+
+    <div class="footer">
+      <p>&copy; <strong>2025 | SULTAAN. All rights reserved.</p>
+      <p style="color: var(--secondary-blue); font-size: 14px; margin-top: 5px;">
+        Wixii cabasho ah oo ku saabsan natiijada Imtixaanka, fadlan la xidhiidh <a href="tel:+252684613207">📞+252684613207</a>
+      </p>
+      <p style="margin-top: 10px;">Printed on: <span id="printDate"></span></p>
+    </div>
+  </div>
+
+  <!-- Animation Overlays -->
+  <div id="winner-animation" style="display: none;">
+      <div class="animation-content">
+          <div class="trophy">🏆</div>
+          <h1>Hambalyo!</h1>
+          <p>Horumar Wacan!</p>
+      </div>
+  </div>
+
+  <div id="loser-animation" style="display: none;">
+      <div class="animation-content">
+          <div class="fail-icon">😞</div>
+          <h1>Waan Ka Xumahay!</h1>
+          <p></p>
+      </div>
+  </div>
+
+  <script>
+    // Admin credentials
+    const adminCredentials = {
+      username: "taysiir",
+      password: "sultaan"
+    };
+
+    let isAdminLoggedIn = false;
+
+    // Toggle admin login form
+    function toggleAdminLogin() {
+      const form = document.getElementById('adminLoginForm');
+      form.classList.toggle('show');
+    }
+
+    // Admin login function
+    function adminLogin() {
+      const username = document.getElementById('adminUsername').value;
+      const password = document.getElementById('adminPassword').value;
+      
+      if (username === adminCredentials.username && password === adminCredentials.password) {
+        isAdminLoggedIn = true;
+        document.getElementById('adminPanel').classList.add('show');
+        document.getElementById('adminLoginForm').classList.remove('show');
+        document.getElementById('adminUsername').value = '';
+        document.getElementById('adminPassword').value = '';
+        
+        // Update admin stats and data
+        updateAdminStats();
+        populateStudentsTable();
+        
+        // Show success message
+        alert('Si guul leh ayaad u soo gududbtay! Kusoo dhawoow dash-boodhka.');
+      } else {
+        alert('Waan ka xumahay hubi username-ka amaba password-ka! Fadlan markale ku celi!.');
+      }
+    }
+
+    // Admin logout function
+    function adminLogout() {
+      isAdminLoggedIn = false;
+      document.getElementById('adminPanel').classList.remove('show');
+      alert('Admin logged out successfully.');
+    }
+
+    // Update admin statistics
+    function updateAdminStats() {
+      const totalStudents = students.length;
+      const passedStudents = students.filter(s => {
+        const scores = Object.values(s.results);
+        const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+        return avg >= 4.5;
+      }).length;
+      
+      const averageScore = (students.reduce((acc, s) => {
+        const scores = Object.values(s.results);
+        return acc + scores.reduce((a, b) => a + b, 0) / scores.length;
+      }, 0) / students.length).toFixed(1);
+      
+      const passRate = ((passedStudents / totalStudents) * 100).toFixed(1);
+      
+      // Update stat cards
+      document.getElementById('totalStudents').textContent = totalStudents;
+      document.getElementById('passedStudents').textContent = passedStudents;
+      document.getElementById('averageScore').textContent = averageScore;
+      document.getElementById('passRate').textContent = passRate + '%';
+    }
+
+    // Populate students table
+    function populateStudentsTable() {
+      const tableBody = document.getElementById('studentsTableBody');
+      tableBody.innerHTML = '';
+      
+      students.forEach(student => {
+        const scores = Object.values(student.results);
+        const avg = (scores.reduce((a, b) => a + b, 0) / scores.length).toFixed(1);
+        const status = avg >= 4.5 ? 'Passed' : 'Failed';
+        const statusClass = avg >= 4.5 ? 'status-passed' : 'status-failed';
+        
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${student.regNo}</td>
+          <td>${student.name}</td>
+          <td>${student.class}</td>
+          <td>${avg}</td>
+          <td><span class="status-badge ${statusClass}">${status}</span></td>
+          <td>
+            <button class="admin-btn" style="padding: 6px 12px; font-size: 12px;" onclick="viewStudent('${student.regNo}')">
+              <i class="fas fa-eye"></i> View
+            </button>
+          </td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    // View student details
+    function viewStudent(regNo) {
+      const student = students.find(s => s.regNo === regNo);
+      if (student) {
+        document.getElementById('regInput').value = regNo;
+        showResult();
+        // Scroll to results
+        document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Admin functions
+    function manageStudents() {
+      if (!isAdminLoggedIn) {
+        alert('Please login as admin first.');
+        return;
+      }
+      alert('Student Management Panel - This would open a student management interface.');
+    }
+
+    function addResults() {
+      if (!isAdminLoggedIn) {
+        alert('Please login as admin first.');
+        return;
+      }
+      alert('Add Results Panel - This would open a results entry interface.');
+    }
+
+    function generateReports() {
+      if (!isAdminLoggedIn) {
+        alert('Please login as admin first.');
+        return;
+      }
+      alert('Report Generation Panel - This would generate various reports.');
+    }
+
+    function systemSettings() {
+      if (!isAdminLoggedIn) {
+        alert('Please login as admin first.');
+        return;
+      }
+      alert('System Settings Panel - This would open system configuration options.');
+    }
+
+    // Faallooyinka gaarka ah
+    const studentComments = {
+        "001": "waxaad muujisay karti iyo dedaal aad u wanaagsan. waxaad ku guulaysatay inaad noqoto ardayda ugu fiican fasalka! 🎉Horumar wanaagsan!",
+        "002": "waxaad u baahan tahay inaad sii kobciso maadooyinka Bayoolijiga, Juqraafiga iyo kuwa luuqadaha.",
+        "003": "waan ka xumahay si aad u hesho ama aad u aragto natiijadaada imtixaanka, fadlan iska xali xafiiska maaliyadda dugsiga.",
+        "1229": "Hambalyo! Waxaad ku guuleysatay inaad noqoto ardeyadda kaalinta 1aad kaga jidha fasalka iyo ardeyadda 1aad ee ugu sarreysa dhammaan natiijada ardeyda kale ee fasalka. 🎉 Horumar wanaagsan Maryama! Rabitaankaaga nolosha Alle raxmadiisa ha kugu siiyo (Aamiin).🎉🎉",
+        "801": "Hambalyo! Waxaad muujisay karti iyo dedaal aad u wanaagsan. Waxaad ku guulaysatay inaad kaalinta 2aad u gasho fasalkaaga. Horumar wanaagsan Salwa! Rabitaankaaga nolosha Alle raxmadiisa ha kugu siiyo (Aamiin).🎉🎉",
+        "128": "Hambalyo! Waxaad muujisay karti iyo dedaal aad u wanaagsan. Waxaad ku guulaysatay inaad kaalinta 3aad u gasho fasalkaaga. Horumar wanaagsan! Rabitaankaaga nolosha Alle raxmadiisa ha kugu siiyo (Aamiin).🎉🎉",
+        "397": "Hambalyo! Waxaad muujisay karti iyo dedaal aad u wanaagsan. Waxaad ku guulaysatay inaad kaalinta 3aad u gasho fasalkaaga. Horumar wanaagsan! Rabitaankaaga nolosha Alle raxmadiisa ha kugu siiyo (Aamiin).🎉🎉",
+        "145": "Hambalyo! Waxaad muujisay karti iyo dedaal aad u wanaagsan. Waxaad ku guulaysatay inaad kaalinta 3aad u gasho fasalkaaga. Horumar wanaagsan! Rabitaankaaga nolosha Alle raxmadiisa ha kugu siiyo (Aamiin).🎉🎉",
+        "131": "Hambalyo! Waxaad muujisay karti iyo dedaal aad u wanaagsan. Waxaad ku guulaysatay inaad kaalinta 4aad u gasho fasalkaaga. Horumar wanaagsan Haala! Rabitaankaaga nolosha Alle raxmadiisa ha kugu siiyo (Aamiin).🎉🎉",
+        "134": "Hambalyo! Waxaad muujisay karti iyo dedaal aad u wanaagsan. Waxaad ku guulaysatay inaad kaalinta 4aad u gasho fasalkaaga. Horumar wanaagsan Juweyriya (Jawaahir)! Rabitaankaaga nolosha Alle raxmadiisa ha kugu siiyo (Aamiin).🎉🎉",
+        "142": "Hambalyo! Waxaad muujisay karti iyo dedaal aad u wanaagsan. Waxaad ku guulaysatay inaad kaalinta 4aad u gasho fasalkaaga. Horumar wanaagsan Saara! Rabitaankaaga nolosha Alle raxmadiisa ha kugu siiyo (Aamiin).🎉🎉",
+        "407": "Hambalyo! Waxaad muujisay karti iyo dedaal aad u wanaagsan. Waxaad ku guulaysatay inaad kaalinta 5aad u gasho fasalkaaga. Horumar wanaagsan Caa'isha (Cayuush)! Rabitaankaaga nolosha Alle raxmadiisa ha kugu siiyo (Aamiin).🎉🎉",
+    }; 
+    
+    const students = [
+      {
+        regNo: "001",
+        name: "Sultaan Faatix",
+        motherName: "Hooyo Hani Cumar Maxamuud",
+        class: "0",
+        year: "2024-2025",
+        results: {
+          Xisaab: 5,
+        },
+      },
+      {
+        regNo: "002",
+        name: "Kowther Faatix",
+        motherName: "Hooyo Hani Cumar Maxamuud",
+        class: "7aad B",
+        year: "2024-2025",
+        results: {
+          Xisaab: 9,
+        }
+      },
+      {
+        regNo: "1229",
+        name: "Maryama Cabdirisaaq Xaajji Cabdi",
+        motherName: "Hooyo Hodan Xuseen Cabdi",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 8.70,
+        }
+      },
+      {
+        regNo: "801",
+        name: "Salwa Cabdiraxmaan Cabdillaahi Sheekh Doon",
+        motherName: "Hooyo Anisa Muuse Afrax",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 8.59,
+        }
+      },
+      {
+        regNo: "128",
+        name: "Asma Cabdirisaaq Ciise Afrax",
+        motherName: "Hooyo Caa'isha Bootaan Xayla",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 8.40,
+        }
+      },
+      {
+        regNo: "397",
+        name: "Sumaya Cabdixaliim Maxamuud Maxamed",
+        motherName: "Hooyo Xabiiba Yuusuf",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 8.40,        
+        }
+      },
+      {
+        regNo: "145",
+        name: "Sumaya Cabdiqaadir Jaamac Cilmi",
+        motherName: "Hooyo Carwa Muuse Cabdalle",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 8.40,
+        }
+      },
+      {
+        regNo: "131",
+        name: "Haala Cumar Cabdillaahi Axmed",
+        motherName: "Hooyo Ruqiya Muuse Macallin",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 8.25,
+        }
+      },
+      {
+        regNo: "134",
+        name: "Juweyriya Cabdillaahi Maxamuud Ibraahim",
+        motherName: "Hooyo Safiya Maxamed Cali",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 8.25,
+        }
+      },
+      {
+        regNo: "142",
+        name: "Saara Cabdiqaadir Xasan",
+        motherName: "Hooyo Asmaa Maxamuud Maxamed",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 8.25,
+        }
+      },
+      {
+        regNo: "407",
+        name: "Caa'isha Cabdirisaaq Ciise Afrax",
+        motherName: "Hooyo Maymuun Cali Macallin",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 8.15,
+        }
+      },
+      {
+        regNo: "141",
+        name: "Safiya Cabdiwaaxid Salaad Cali",
+        motherName: "Hooyo Aamina Cabdillaahi Nuur",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 8.10,
+        }
+      },
+      {
+        regNo: "699",
+        name: "Sahla Maxamed Cabdilaahi Cabdulle",
+        motherName: "Hooyo Faaduma Maxamuud Calasoow",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 7.95,
+        }
+      },
+      {
+        regNo: "396",
+        name: "Xamiida Cabdisalaam Cali Farxaan",
+        motherName: "Hooyo Maana Cismaan Cabdiwaaxid",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 7.80,
+        }
+      },
+      {
+        regNo: "395",
+        name: "Sumaya Cabdirisaaq Xasan Siyaad",
+        motherName: "Hooyo Abshira Ibraahim Barre",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 7.80,
+        }
+      },
+      {
+        regNo: "408",
+        name: "Maryam Maxamed Ibraahim Cumar",
+        motherName: "Hooyo Sahra Ibraahim Cali",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 7.35,
+        }
+      },
+      {
+        regNo: "1292",
+        name: "Sumaya Xasan Maxamed Cabdishakuur",
+        motherName: "",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 7.05,
+        }
+      },
+      {
+        regNo: "139",
+        name: "Maryama Maxamed Cabdinuur Sheekh Doon",
+        motherName: "Hooyo Faaduma Saciid Cabdiraxmaan",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 6.98,
+        }
+      },
+      {
+        regNo: "199",
+        name: "Maryama Cabdifitaax Maxamed Maxamed",
+        motherName: "Hooyo Cibaada Cabdi Faarax",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 6.60,
+        }
+      },
+      {
+        regNo: "132",
+        name: "Xaliima Axmed Maxamuud Maxamed",
+        motherName: "Hooyo Fahma Isxaaq",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 6.45,
+        }
+      },
+      {
+        regNo: "130",
+        name: "Faaduma Xuseen Yuusuf Nuur",
+        motherName: "Hooyo Farxiya Axmed Cabdalle",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 6.45,
+        }
+      },
+      {
+        regNo: "794",
+        name: "Caatika Ibraahim Cali Kanee",
+        motherName: "Hooyo Maryama Maxamuud",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 5.70,
+        }
+      },
+      {
+        regNo: "399",
+        name: "Nasteexa Ibraahim Nuur Aadam",
+        motherName: "Hooyo Aamina Aadam Xasan",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 5.55,
+        }
+      },
+      {
+        regNo: "894",
+        name: "Maariya Cismaan Maxamuud Xuseen",
+        motherName: "Hooyo Safiya Maxamed Yuunis",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 5.40,
+        }
+      },
+      {
+        regNo: "926",
+        name: "Sumaya Cabdiraxmaan Faarax Rooble",
+        motherName: "Hooyo Amina Cumar Maxamuud",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 5.25,
+        }
+      },
+      {
+        regNo: "698",
+        name: "Maa'ida Ciise Cabdillaahi Cumar",
+        motherName: "Hooyo Saciid Cabdi Maxamed",
+        class: "7aad B",
+        year: "2025-2026",
+        results: {
+          XISAAB: 5.10,
+        },
+      }
+    ];
+
+    function getLetterGrade(score) {
+      if (score >= 9) return { grade: "A+", class: "grade-A" };
+      if (score >= 8.9) return { grade: "A", class: "grade-A" };
+      if (score >= 8.5) return { grade: "A-", class: "grade-A" };
+      if (score >= 8.0) return { grade: "B+", class: "grade-B" };
+      if (score >= 7.5) return { grade: "B", class: "grade-B" };
+      if (score >= 7.0) return { grade: "B-", class: "grade-B" };
+      if (score >= 6.5) return { grade: "C+", class: "grade-C" };
+      if (score >= 6.0) return { grade: "C", class: "grade-C" };
+      if (score >= 5.0) return { grade: "C-", class: "grade-C" };
+      if (score >= 4.0) return { grade: "D", class: "grade-D" };
+      if (score >= 2.0) return { grade: "E", class: "grade-F" };
+      return { grade: "F", class: "grade-F" };
+    }
+
+    function getComment(score) {
+        if (score >= 9) return "Heer Sare";
+        if (score >= 7) return "Aad u Wanaagsan";
+        if (score >= 5.0) return "Wanaagsan";
+        if (score >= 4.50) return "Dhexdhexaad";
+        return "Liita";
+    }
+
+    function showResult() {
+      const reg = document.getElementById('regInput').value.trim();
+      const student = students.find((s) => s.regNo === reg);
+
+      const printBtn = document.getElementById('printBtn');
+      if (!student) {
+        document.getElementById('result').innerHTML = `
+          <div style="background: #ffeeee; padding: 15px; border-radius: 8px; margin-top: 15px; text-align: center; border: 1px solid #ffcccc;">
+            <p style="color: #d32f2f; font-weight: bold; font-size: 14px;">
+             <i class="fas fa-exclamation-circle"></i> Ma jidho tira-taxaneha aad gelisay. Fadlan iska hubi oo isku day mar kale.
+            </p>
+          </div>`;
+        printBtn.style.display = 'none';
+        return;
+      }
+
+      const subjects = Object.keys(student.results);
+      const scores = Object.values(student.results);
+      const total = scores.reduce((a, b) => a + b, 0);
+      const maxTotal = subjects.length * 9.00;
+      const avg = (total / maxTotal) * 9.00;
+      const status = avg >= 4.50 ? 'Gudbay' : 'Haray';
+      const statusClass = avg >= 4.50 ? 'pass' : 'fail';
+      
+      // Get overall letter grade
+      const overallLetterGrade = getLetterGrade(avg);
+
+      // Determine custom comment based on performance
+      let customComment = studentComments[student.regNo] || "";
+      if (!customComment) {
+          if (avg >= 8) {
+              customComment = "Masha Allah! Waxaad gaadhay heer sare oo caddeyn u ah u ah dedaalka, juhdiga, kartida, firfircoonida iyo waxqabadka wanaagsan.";
+          } else if (avg >= 7.0) {
+              customComment = "waxaad si wanaagsan u muujisay faham qoto dheer oo ku saabsan maadooyinka. Haddii aad xoogga saarto meelaha aad caqabada kala kulanto, waxaad gaari doontaa heerar ka sarreeya halka aad hadda joogto.";
+          } else if (avg >= 5.0) {
+              customComment = "waxaad muujisay dadaal muuqda oo tilmaamaya in aad ku jirto waddada saxda ah. Haddii aad xoogga saarto meelaha u baahan horumar iyo taageero, waxaad gaari doontaa heer sare. Sii wad dadaalkaaga.";
+          } else {
+              customComment = "ha niyad jebin, tani ma'aha dhammaad ee waa bilow cusub. Dadaal, la shaqee macallimiinta, hana quusan—waad gaadhi kadhaa guushaada!";
+          }
+      }
+
+      // --- TRIGGER ANIMATION ---
+      if (status === 'Gudbay') {
+          const winnerOverlay = document.getElementById('winner-animation');
+          winnerOverlay.style.display = 'flex';
+
+          // Trigger confetti
+          confetti({
+              particleCount: 1000,
+              spread: 360,
+              origin: { y: 0.6 },
+              zIndex: 1001
+          });
+
+          setTimeout(() => { 
+              winnerOverlay.style.display = 'none';
+          }, 3000); // Hide after 3 seconds
+      } else {
+          const loserOverlay = document.getElementById('loser-animation');
+          loserOverlay.style.display = 'flex';
+
+          setTimeout(() => {
+              loserOverlay.style.display = 'none';
+          }, 3000); // Hide after 3 seconds
+      }
+      // --- END OF ANIMATION TRIGGER ---
+
+      let resultHTML = `
+        <div class="student-info-container">
+          <div class="student-info-header">
+            <h3 class="student-info-title">MACLUUMAADKA ARDEYGA</h3>
+            <span class="student-info-badge">IMTIXAAN BILEEDKA LABAAD</span>
+          </div>
+          
+          <div class="student-info-rows">
+            <div class="info-row">
+                <div class="info-item">
+                  <div class="info-icon"><i class="fas fa-id-card"></i></div>
+                  <div>
+                    <div class="info-label">Tira-taxanaha:</div>
+                    <div class="info-value">${student.regNo}</div>
+                  </div>
+                </div>
+                <div class="info-item">
+                  <div class="info-icon"><i class="fas fa-user-graduate"></i></div>
+                  <div>
+                    <div class="info-label">Magaca Ardeyga:</div>
+                    <div class="info-value">${student.name}<strong></div>
+                  </div>
+                </div>
+                <div class="info-item">
+                  <div class="info-icon"><i class="fas fa-female"></i></div>
+                  <div>
+                    <div class="info-label">Magaca Hooyada:</div>
+                    <div class="info-value">${student.motherName}</div>
+                  </div>
+                </div>
+            </div>
+            <div class="info-row">
+                <div class="info-item">
+                  <div class="info-icon"><i class="fas fa-school"></i></div>
+                  <div>
+                    <div class="info-label">Fasalka:</div>
+                    <div class="info-value">${student.class}</div>
+                  </div>
+                </div>
+                <div class="info-item">
+                  <div class="info-icon"><i class="fas fa-calendar-alt"></i></div>
+                  <div>
+                    <div class="info-label">Sanad Dugsiyeedka:</div>
+                    <div class="info-value">${student.year}</div>
+                  </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon" style="background-color: ${status === 'Gudbay' ? 'var(--success-green)' : 'var(--danger-red)'};">
+                        <i class="fas ${status === 'Gudbay' ? 'fa-check-circle' : 'fa-times-circle'}"></i>
+                    </div>
+                    <div>
+                        <div class="info-label">Go'aanka:</div>
+                        <div class="info-value" style="color: ${status === 'Gudbay' ? 'var(--success-green)' : 'var(--danger-red)'}; font-weight: bold;">
+                        ${status}
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="results-container">
+          <div class="results-header">
+            <h3 class="results-title">NATIIJADA MAADOOYINKA</h3> 
+            <span class="results-badge"></span>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="results-table">
+              <thead>
+                <tr>
+                  <th>Maadada</th>
+                  <th>Dhibcaha (la rabo: 9.00)</th>
+                  <th>Darajada</th>
+                  <th>Faallo</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${subjects.map((subject, index) => {
+                  const score = scores[index];
+                  const letterGrade = getLetterGrade(score);
+                  const comment = getComment(score);
+                  const performanceClass = score >= 9.0 ? 'excellent' : score >= 7.5 ? 'good' : score >= 6.0 ? 'average' : score >= 5.0 ? 'poor' : 'fail';
+                  
+                  // Calculate width percentage - for 9 points, force 100%
+                  const widthPercentage = score >= 9 ? 100 : (score / 9) * 100;
+                  
+                  return `
+                    <tr>
+                      <td data-label="Maadada" class="subject-name">${subject}</td>
+                      <td data-label="Dhibcaha" class="grade-cell">
+                        <span class="grade-value">${score.toFixed(1)}</span>
+                        <div class="grade-progress">
+                          <div class="grade-progress-bar ${performanceClass}" style="width: ${widthPercentage}%;"></div>
+                        </div>
+                      </td>
+                      <td data-label="Darajada">
+                        <span class="performance-indicator ${performanceClass}"></span>
+                        ${letterGrade.grade}
+                      </td>
+                      <td data-label="Faallo">${comment}</td>
+                    </tr>
+                  `;
+                }).join('')}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="summary-container">
+          <div class="summary-card total-card">
+            <div style="font-size: 30px; opacity: 0.1; position: absolute; right: 10px; top: 10px;"><i class="fas fa-calculator"></i></div>
+            <div class="summary-title">WADARTA</div>
+            <div class="summary-value">${total.toFixed(1)}</div>
+          </div>
+          
+          <div class="summary-card average-card">
+            <div style="font-size: 30px; opacity: 0.1; position: absolute; right: 10px; top: 10px;"><i class="fas fa-chart-line"></i></div>
+            <div class="summary-title">CELCELISKA</div>
+            <div class="summary-value">${avg.toFixed(1)}</div>
+          </div>
+          
+          <div class="summary-card status-card ${statusClass === 'pass' ? 'success-status' : ''}">
+            <div style="font-size: 30px; opacity: 0.1; position: absolute; right: 10px; top: 10px;">${statusClass === 'pass' ? '<i class="fas fa-trophy"></i>' : '<i class="fas fa-exclamation-triangle"></i>'}</div>
+            <div class="summary-title">GO'AANKA</div>
+            <div class="summary-value">${status} <span class="letter-grade ${overallLetterGrade.class}" style="font-size: 30px;">(${overallLetterGrade.grade})</span></div>
+            <div class="summary-desc">${statusClass === 'pass' ? 'Hambalyo!' : 'Ha niyad jabin, dedaal!'}</div>
+          </div>
+        </div>
+        
+        <div class="final-comment">
+            <div class="comment-header">Faallo Gaadh ah</div>
+            <div class="comment-content">
+                 <strong>${student.name}</strong>, ${customComment}
+            </div>
+        </div>
+      `;
+      document.getElementById('result').innerHTML = resultHTML;
+      printBtn.style.display = 'flex';
+      document.getElementById('printDate').textContent = new Date().toLocaleString();
+    }
+
+    // Add event listener for Enter key on the input field
+    document.getElementById('regInput').addEventListener('keyup', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            showResult();
+        }
+    });
+  </script>
+</body>
+</html>
