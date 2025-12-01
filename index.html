@@ -163,12 +163,12 @@
     
     /* ========== PROFESSIONAL ADMIN SECTION ========== */
     .admin-section {
-      background: linear-gradient(135deg, var(--admin-purple), #8b5cf6);
+      background: linear-gradient(135deg, #6A040F, #FFECD1);
       padding: 25px;
       border-radius: 12px;
       box-shadow: 0 8px 25px rgba(111, 66, 193, 0.3);
       margin: 25px 0;
-      border: 2px solid rgba(255,255,255,0.1);
+      border: 0px solid rgba(255,255,255,0.1);
       max-width: 100%;
       text-align: center;
       position: relative;
@@ -243,7 +243,7 @@
       color: white;
       margin-bottom: 8px;
       font-weight: 600;
-      font-size: 14px;
+      font-size: 20px;
     }
     
     .admin-input {
@@ -252,14 +252,14 @@
       border: 2px solid rgba(255,255,255,0.3);
       border-radius: 8px;
       background: rgba(255,255,255,0.9);
-      font-size: 14px;
+      font-size: 16px;
       transition: all 0.3s;
-      color: #333;
+      color: black;
     }
     
     .admin-input:focus {
       outline: none;
-      border-color: white;
+      border-color: blue;
       background: white;
       box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
     }
@@ -268,7 +268,7 @@
       width: 100%;
       background: white;
       color: var(--admin-purple);
-      border: none;
+      border: 1px;
       padding: 12px;
       border-radius: 8px;
       font-weight: 600;
@@ -289,7 +289,7 @@
     /* Professional Admin Panel */
     .admin-panel {
       display: none;
-      background: white;
+      background: #F5F5F5;
       border-radius: 12px;
       padding: 25px;
       margin: 25px 0;
@@ -306,7 +306,6 @@
       left: 0;
       width: 100%;
       height: 4px;
-      background: linear-gradient(to right, var(--admin-purple), var(--admin-teal));
     }
     
     .admin-panel.show {
@@ -365,7 +364,7 @@
     }
     
     .admin-btn {
-      background: linear-gradient(135deg, var(--admin-purple), var(--secondary-blue));
+      background: linear-gradient(135deg, #2D3436, #0984E3);
       color: white;
       border: none;
       padding: 15px;
@@ -457,7 +456,7 @@
     }
     
     .students-table th {
-      background: linear-gradient(135deg, var(--admin-purple), var(--secondary-blue));
+      background: linear-gradient(135deg, #0A3D62, #82CCDD);
       color: white;
       padding: 12px 15px;
       text-align: left;
@@ -1138,7 +1137,7 @@
       }
       
       .grade-letter {
-        font-size: 14px;
+        font-size: 20px;
       }
       
       .grade-range {
@@ -1242,17 +1241,17 @@
 <body>
   <!-- Welcome Header -->
   <header class="welcome-header">
-    KUSOO DHAWOOW MAREEGTAN
-    <div class="welcome-subtitle">Welcome to the Tayseer International Schools (TIS) Exam Results Portal.</div>
+    KUSOO DHAWOOW MAREEGTAN 
+    <div class="welcome-subtitle">Welcome to the TIS Exam Results Portal.</div>
   </header>
 
   <div class="container">
     <!-- Modern Header Section -->
     <div class="header-section">
-      <img src="https://i.ibb.co/kVB6RMv2/New-logo-7aad-Taysiir-Schools.jpg" alt="Al-Hadaad-Logo" alt="Al-Hadad School Logo" class="school-logo">
+      <img src="https://i.ibb.co/kVB6RMv2/Fasalka-7aadB-Logo-Taysiir-Schools.jpg" alt="tis School Logo" class="school-logo">
       <h1 class="school-name">DUGSIYADA CAALAMIGA AH EE TAYSIIR (TIS)</h1>
       <h2 class="exam-title">NATIIJADA IMTIXAANKA BILEEDKA LABAAD EE MAADADA XISAABTA</h2>
-      <div class="academic-year">SANAD DUGSIYEEDKA 2024-2025</div>
+      <div class="academic-year">SANAD DUGSIYEEDKA 2025-2026</div>
     </div>
     
     <!-- Professional Admin Section -->
@@ -1263,15 +1262,15 @@
       
       <div class="admin-login-form" id="adminLoginForm">
         <div class="admin-input-group">
-          <label class="admin-label">Username:</label>
-          <input type="text" class="admin-input" id="adminUsername" placeholder="Enter admin username">
+          <label class="admin-label">USERNAME:</label>
+          <input type="text" class="admin-input" id="adminUsername" placeholder="Geli admin Username">
         </div>
         <div class="admin-input-group">
-          <label class="admin-label">Password:</label>
-          <input type="password" class="admin-input" id="adminPassword" placeholder="Enter admin password">
+          <label class="admin-label">PASSWORD:</label>
+          <input type="password" class="admin-input" id="adminPassword" placeholder="Geli admin Password">
         </div>
         <button class="admin-submit-btn" onclick="adminLogin()">
-          <i class="fas fa-sign-in-alt"></i> Login to Admin Panel
+          <i class="fas fa-sign-in-alt"></i> Hore-u-gal
         </button>
       </div>
     </div>
@@ -1280,25 +1279,25 @@
     <div class="admin-panel" id="adminPanel">
       <div class="admin-panel-header">
         <h3 class="admin-panel-title">
-          <i class="fas fa-cogs"></i> Admin Dashboard
+          <i class="fas fa-cogs"></i> Wajahada Hore 
         </h3>
         <button class="admin-logout-btn" onclick="adminLogout()">
-          <i class="fas fa-sign-out-alt"></i> Logout
+          <i class="fas fa-sign-out-alt"></i> Ka bax
         </button>
       </div>
       
       <div class="admin-controls">
         <button class="admin-btn" onclick="manageStudents()">
-          <i class="fas fa-users"></i> Manage Students
+          <i class="fas fa-users"></i> Maareynta Ardeyda
         </button>
         <button class="admin-btn" onclick="addResults()">
-          <i class="fas fa-plus-circle"></i> Add Results
+          <i class="fas fa-plus-circle"></i> Ku Dar Darajo
         </button>
         <button class="admin-btn" onclick="generateReports()">
-          <i class="fas fa-chart-bar"></i> Generate Reports
+          <i class="fas fa-chart-bar"></i> Howlgali Warbixino
         </button>
         <button class="admin-btn" onclick="systemSettings()">
-          <i class="fas fa-cog"></i> System Settings
+          <i class="fas fa-cog"></i> Waaxda Farsamada
         </button>
       </div>
       
@@ -1306,39 +1305,39 @@
         <div class="stat-card">
           <div class="stat-icon"><i class="fas fa-user-graduate"></i></div>
           <div class="stat-value" id="totalStudents">0</div>
-          <div class="stat-label">Total Students</div>
+          <div class="stat-label">Tirada Guud ee Ardeyda</div>
         </div>
         <div class="stat-card">
           <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
           <div class="stat-value" id="passedStudents">0</div>
-          <div class="stat-label">Passed Students</div>
+          <div class="stat-label">Ardeyda Gudubtay</div>
         </div>
         <div class="stat-card">
           <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
           <div class="stat-value" id="averageScore">0.0</div>
-          <div class="stat-label">Average Score</div>
+          <div class="stat-label">Dhibcaha</div>
         </div>
         <div class="stat-card">
           <div class="stat-icon"><i class="fas fa-percentage"></i></div>
           <div class="stat-value" id="passRate">0%</div>
-          <div class="stat-label">Pass Rate</div>
+          <div class="stat-label">Heerka Gudbidda</div>
         </div>
       </div>
       
       <div class="admin-data-section">
         <h4 class="data-section-title">
-          <i class="fas fa-table"></i> Students Data
+          <i class="fas fa-table"></i> Xogta Ardeyda
         </h4>
         <div style="overflow-x: auto;">
           <table class="students-table">
             <thead>
               <tr>
-                <th>Reg No</th>
-                <th>Name</th>
-                <th>Class</th>
-                <th>Average Score</th>
-                <th>Status</th>
-                <th>Actions</th>
+                <th>TT</th>
+                <th>Magaca</th>
+                <th>Fasalka</th>
+                <th>Darajada</th>
+                <th>Go'aanka</th>
+                <th>Baadhid</th>
               </tr>
             </thead>
             <tbody id="studentsTableBody">
@@ -1376,9 +1375,9 @@
 
     <div class="signature">
       <p><strong><i class="fas fa-user"></i> SULTAAN</strong></p>
-      <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/252684613207">Sultaan</a></p>
+      <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/252684613207">taabo 👉 Sultaan</a></p>
       <p><i class="fas fa-envelope"></i> Email: <a href="mailto:sultaanfaatix@gmail.com">sultaanfaatix@gmail.com</a></p>
-      <p><i class="fab fa-facebook"></i> Facebook: <a href="https://www.facebook.com/Taysiir.Schools">TIS</a></p>
+      <p><i class="fab fa-facebook"></i> Facebook: <a href="https://www.facebook.com/Taysiir.Schools">Booqo barta Facebook-ga ee TIS</a></p>
       <p><i class="fas fa-location-dot"></i> Hodan, KPP</p>
     </div>
 
@@ -1550,7 +1549,7 @@
 
     // Faallooyinka gaarka ah
     const studentComments = {
-        "001": "waxaad muujisay karti iyo dedaal aad u wanaagsan. waxaad ku guulaysatay inaad noqoto ardayda ugu fiican fasalka! 🎉Horumar wanaagsan!",
+        "001": "Hambalyo! Waxaad ku guuleysatay inaad noqoto ardeyadda kaalinta 1aad kaga jidha fasalka iyo ardeyadda 1aad ee ugu sarreysa dhammaan natiijada ardeyda kale ee fasalka. 🎉 Horumar wanaagsan Maryama! Rabitaankaaga nolosha Alle raxmadiisa ha kugu siiyo (Aamiin).🎉🎉",
         "002": "waxaad u baahan tahay inaad sii kobciso maadooyinka Bayoolijiga, Juqraafiga iyo kuwa luuqadaha.",
         "003": "waan ka xumahay si aad u hesho ama aad u aragto natiijadaada imtixaanka, fadlan iska xali xafiiska maaliyadda dugsiga.",
         "1229": "Hambalyo! Waxaad ku guuleysatay inaad noqoto ardeyadda kaalinta 1aad kaga jidha fasalka iyo ardeyadda 1aad ee ugu sarreysa dhammaan natiijada ardeyda kale ee fasalka. 🎉 Horumar wanaagsan Maryama! Rabitaankaaga nolosha Alle raxmadiisa ha kugu siiyo (Aamiin).🎉🎉",
@@ -1567,22 +1566,22 @@
     const students = [
       {
         regNo: "001",
-        name: "Sultaan Faatix",
+        name: "Kowther Maxamed Aadam Sultaan",
         motherName: "Hooyo Hani Cumar Maxamuud",
         class: "0",
-        year: "2024-2025",
+        year: "2025-2026",
         results: {
-          Xisaab: 5,
-        },
+          Xisaab: 8,
+        }
       },
       {
         regNo: "002",
-        name: "Kowther Faatix",
+        name: "Kowther Maxamed Aadam Sultaan",
         motherName: "Hooyo Hani Cumar Maxamuud",
-        class: "7aad B",
-        year: "2024-2025",
+        class: "0",
+        year: "2025-2026",
         results: {
-          Xisaab: 9,
+          Xisaab: 2,
         }
       },
       {
@@ -1881,7 +1880,7 @@
       let customComment = studentComments[student.regNo] || "";
       if (!customComment) {
           if (avg >= 8) {
-              customComment = "Masha Allah! Waxaad gaadhay heer sare oo caddeyn u ah u ah dedaalka, juhdiga, kartida, firfircoonida iyo waxqabadka wanaagsan.";
+              customComment = "Masha Allah! Waxaad gaadhay heer sare oo caddeyn u ah dedaalka, juhdiga, kartida, firfircoonida iyo waxqabadka wanaagsan.";
           } else if (avg >= 7.0) {
               customComment = "waxaad si wanaagsan u muujisay faham qoto dheer oo ku saabsan maadooyinka. Haddii aad xoogga saarto meelaha aad caqabada kala kulanto, waxaad gaari doontaa heerar ka sarreeya halka aad hadda joogto.";
           } else if (avg >= 5.0) {
@@ -1980,7 +1979,7 @@
 
         <div class="results-container">
           <div class="results-header">
-            <h3 class="results-title">NATIIJADA MAADOOYINKA</h3> 
+            <h3 class="results-title">NATIIJADA MAADADA</h3> 
             <span class="results-badge"></span>
           </div>
           <div style="overflow-x:auto;">
@@ -1998,7 +1997,7 @@
                   const score = scores[index];
                   const letterGrade = getLetterGrade(score);
                   const comment = getComment(score);
-                  const performanceClass = score >= 9.0 ? 'excellent' : score >= 7.5 ? 'good' : score >= 6.0 ? 'average' : score >= 5.0 ? 'poor' : 'fail';
+                  const performanceClass = score >= 8.0 ? 'excellent' : score >= 7.0 ? 'very good' : score >= 5.0 ? 'good' : score >= 4.5 ? 'average' : score >= 0.0 ? 'poor': 'fail';
                   
                   // Calculate width percentage - for 9 points, force 100%
                   const widthPercentage = score >= 9 ? 100 : (score / 9) * 100;
@@ -2028,7 +2027,7 @@
         <div class="summary-container">
           <div class="summary-card total-card">
             <div style="font-size: 30px; opacity: 0.1; position: absolute; right: 10px; top: 10px;"><i class="fas fa-calculator"></i></div>
-            <div class="summary-title">WADARTA</div>
+            <div class="summary-title">DARAJADA</div>
             <div class="summary-value">${total.toFixed(1)}</div>
           </div>
           
@@ -2047,7 +2046,7 @@
         </div>
         
         <div class="final-comment">
-            <div class="comment-header">Faallo Gaadh ah</div>
+            <div class="comment-header">Faallo Gaar ah</div>
             <div class="comment-content">
                  <strong>${student.name}</strong>, ${customComment}
             </div>
